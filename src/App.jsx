@@ -6,7 +6,7 @@ import Login from "./component/auth/Login";
 import Register from "./component/auth/Register";
 import ForgotPassword from "./component/auth/ForgotPassword";
 import ResetPassword from "./component/auth/ResetPassword";
-import GoogleRedirect from "./component/auth/GoogleRedirect";x`x`
+import GoogleRedirect from "./component/auth/GoogleRedirect";
 
 import ProtectedRoute from "./routes/ProtectedRoute";
 import AuthRoute from "./routes/AuthRoute";
