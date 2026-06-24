@@ -1,0 +1,70 @@
+.lessonPage {
+  max-width: 1100px;
+}
+
+.courseSelect {
+  width: 300px;
+  border-radius: 12px;
+  padding: 10px 14px;
+}
+
+.lessonCard {
+  background: #ffffff;
+  border: 1px solid #dbe2ea;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.lessonItem {
+  min-height: 64px;
+  padding: 0 18px;
+  border-bottom: 1px solid #e5e7eb;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lessonItem:last-child {
+  border-bottom: none;
+}
+
+.lessonNumber {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #eef2f7;
+  color: #344054;
+  font-size: 13px;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deleteBtn {
+  border: none;
+  background: transparent;
+  color: #ff3b3b;
+  font-size: 16px;
+}
+
+.deleteBtn:hover {
+  color: #dc2626;
+}
+
+@media (max-width: 768px) {
+  .lessonPage {
+    max-width: 100%;
+  }
+
+  .courseSelect {
+    width: 100%;
+  }
+
+  .lessonItem {
+    padding: 14px;
+    align-items: flex-start;
+  }
+}

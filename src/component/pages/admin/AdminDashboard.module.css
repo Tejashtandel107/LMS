@@ -1,0 +1,12 @@
+.box{
+  width: 100%;
+  min-height: 120px;
+  background: #eaf4ff;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.icon{
+    font-size: 40px;
+}
+

@@ -1,0 +1,161 @@
+.page {
+  background: #f8fafc;
+  min-height: 100vh;
+  padding: 40px 0;
+}
+
+.container {
+  max-width: 980px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 1fr 150px 120px;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.searchBox {
+  background: white;
+  border: 1px solid #dbe3ef;
+  border-radius: 8px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.searchBox input,
+.filters select {
+  height: 42px;
+  border: 1px solid #dbe3ef;
+  border-radius: 8px;
+  background: white;
+  font-size: 14px;
+}
+
+.searchBox input {
+  border: 0;
+  outline: 0;
+  width: 100%;
+}
+
+.card {
+  background: white;
+  border: 1px solid #dbe3ef;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 100%;
+}
+
+.imageWrap {
+  height: 170px;
+  position: relative;
+}
+
+.imageWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #eef2ff;
+  color: #4f46e5;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: white;
+  border: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.body {
+  padding: 16px;
+}
+
+.category {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.body h6 {
+  font-weight: 700;
+  margin: 8px 0;
+  min-height: 38px;
+}
+
+.instructor,
+.meta,
+.footer small {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer strong {
+  font-size: 18px;
+}
+
+.free {
+  color: #16a34a;
+}
+
+.pagination {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pagination button {
+  border: 1px solid #dbe3ef;
+  background: white;
+  border-radius: 8px;
+  padding: 6px 12px;
+}
+
+.pagination .active {
+  background: #6366f1;
+  color: white;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .filters {
+    grid-template-columns: 1fr;
+  }
+}

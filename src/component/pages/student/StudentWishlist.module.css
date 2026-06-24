@@ -1,0 +1,150 @@
+.page {
+  background: #fff;
+  min-height: 100vh;
+  padding: 36px 30px;
+}
+
+.container {
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 28px;
+  color: #1c1d1f;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.card {
+  width: 100%;
+}
+
+.imageBox {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: #f3f4f6;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heartBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.courseTitle {
+  display: block;
+  margin-top: 10px;
+  color: #1c1d1f;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.courseTitle:hover {
+  color: #5624d0;
+}
+
+.instructor {
+  margin: 5px 0;
+  color: #6a6f73;
+  font-size: 13px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #b4690e;
+  font-size: 13px;
+}
+
+.meta {
+  margin: 6px 0;
+  color: #6a6f73;
+  font-size: 12px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1c1d1f;
+}
+
+.badge {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 8px;
+  background: #eceb98;
+  color: #3d3c0a;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 3px;
+}
+
+.empty {
+  text-align: center;
+  padding: 80px 20px;
+  border: 1px solid #d1d7dc;
+}
+
+.browseBtn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 18px;
+  background: #5624d0;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.language {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.courseTitle {
+  text-decoration: none;
+}
+
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
