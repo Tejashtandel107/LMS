@@ -62,22 +62,26 @@ function App() {
         {/* Student Routes */}
         <Route
           path="/student/dashboard"
-          element={<ProtectedRoute allowedRoles={["student"]}><MyLearning /></ProtectedRoute>}
+          element={<ProtectedRoute allowedRoles={["student"]}><MyLearning />
+          </ProtectedRoute>}
         />
 
         <Route
           path="/student/become-instructor"
-          element={<ProtectedRoute allowedRoles={["student"]}><BecomeInstructor /></ProtectedRoute>}
+          element={<ProtectedRoute allowedRoles={["student"]}><BecomeInstructor />
+          </ProtectedRoute>}
         />
 
         <Route 
           path="/student/profile" 
-          element={<ProtectedRoute allowedRoles={["student"]}><Profile /></ProtectedRoute>} 
+          element={<ProtectedRoute allowedRoles={["student"]}><Profile />
+          </ProtectedRoute>} 
         />
 
         <Route 
           path="/student/learning" 
-          element={<ProtectedRoute allowedRoles={["student"]}><MyLearning /></ProtectedRoute>} 
+          element={<ProtectedRoute allowedRoles={["student"]}><MyLearning />
+          </ProtectedRoute>} 
         />
 
         <Route 
@@ -87,7 +91,8 @@ function App() {
 
          <Route 
           path="/student/wishlist" allowedRoles={["student"]}
-          element={<Suspense fallback={<div>Loading...</div>}><StudentWishlist /></Suspense>}
+          element={<Suspense fallback={<div>Loading...</div>}><StudentWishlist />
+          </Suspense>}
         />
 
         <Route path="/checkout" allowedRoles={["student"]} element={<Checkout />} />
@@ -100,37 +105,44 @@ function App() {
         {/* Instructor Routes */}
         <Route
           path="/instructor/courses"
-          element={<ProtectedRoute allowedRoles={["instructor"]}><ManageCourses /></ProtectedRoute>}
+          element={<ProtectedRoute allowedRoles={["instructor"]}><ManageCourses />
+          </ProtectedRoute>}
         />
 
         <Route
           path="/instructor/create-course"
-          element={<ProtectedRoute allowedRoles={["instructor"]}><CreateCourse /></ProtectedRoute>}
+          element={<ProtectedRoute allowedRoles={["instructor"]}><CreateCourse />
+          </ProtectedRoute>}
         />
 
         <Route 
           path="/courses/edit/:id" 
-          element={<ProtectedRoute allowedRoles={["instructor"]}><CreateCourse /></ProtectedRoute>} 
+          element={<ProtectedRoute allowedRoles={["instructor"]}><CreateCourse />
+          </ProtectedRoute>} 
         />
 
         <Route
           path="/instructor/lessons"
-          element={<ProtectedRoute allowedRoles={["instructor"]}><ManageLessons /></ProtectedRoute>}
+          element={<ProtectedRoute allowedRoles={["instructor"]}><ManageLessons />
+          </ProtectedRoute>}
         />
 
         <Route 
           path="/instructor/create-lessons" 
-          element={<ProtectedRoute allowedRoles={["instructor"]}><AddLesson /></ProtectedRoute>} 
+          element={<ProtectedRoute allowedRoles={["instructor"]}><AddLesson />
+          </ProtectedRoute>} 
         />
 
         <Route 
           path="/instructor/edit-lesson/:documentId" 
-          element={<ProtectedRoute allowedRoles={["instructor"]}><EditLesson /></ProtectedRoute> }
+          element={<ProtectedRoute allowedRoles={["instructor"]}><EditLesson />
+          </ProtectedRoute> }
         />
 
         <Route
           path="/instructor/profile"
-          element={<ProtectedRoute allowedRoles={["instructor"]}><Profile /></ProtectedRoute>}
+          element={<ProtectedRoute allowedRoles={["instructor"]}><Profile />
+          </ProtectedRoute>}
         />
 
         {/* Admin Routes */}

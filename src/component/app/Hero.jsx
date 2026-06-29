@@ -3,16 +3,18 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 function Hero() {
+  const BASE_URL = import.meta.env.VITE_BASE_URL;
+
   const [users,setUsers] = useState([]);
   const [courses,setCourses] = useState([]);
 
   const fetchUsers = async()=>{
-    const res = await axios.get('http://localhost:1337/api/users');
+    const res = await axios.get(`${BASE_URL}`);
     setUsers(res.data);
   }
 
   const fetchCourses = async()=>{
-    const res = await axios.get('http://localhost:1337/api/courses');
+    const res = await axios.get(`${BASE_URL}`);
     setCourses(res.data);
   }
 
