@@ -43,6 +43,8 @@ function ForgotPassword() {
   };
 
   return (
+    <>
+    <title>Forgot Password | Learning Management System</title>
     <div className="container-fluid p-0">
       <div className="row g-0 min-vh-100">
         <div className="col-lg-6 d-none d-lg-flex bg-warning align-items-center justify-content-center">
@@ -118,6 +120,7 @@ function ForgotPassword() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

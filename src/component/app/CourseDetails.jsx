@@ -30,6 +30,7 @@ function CourseDetails() {
   const user = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
+    document.title = 'Course Details | Learning Management System';
     getCourse();
 
     if (user && token) {

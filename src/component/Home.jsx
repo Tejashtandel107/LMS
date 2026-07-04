@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Link } from "react-router-dom";
 import Header from './app/Header';
 import Categories from './app/Category';
@@ -18,6 +18,10 @@ function Home() {
       block: "start",
     })
   }
+
+  useEffect(()=>{
+    document.title = 'Learning Management System'
+  },[])
 
   return (
     <>

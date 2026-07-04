@@ -27,6 +27,7 @@ function AllCourses() {
   });
 
   useEffect(() => {
+    document.title = "All Courses | Learning Management System";
     getCategory();
     getCourseType();
   }, []);

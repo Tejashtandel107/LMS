@@ -13,6 +13,7 @@ function Cart() {
   const { items, loading } = useSelector((state) => state.cart);
 
   useEffect(() => {
+    document.title = "Cart | Learning Management System";
     dispatch(fetchCart());
   }, [dispatch]);
 

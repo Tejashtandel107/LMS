@@ -84,17 +84,25 @@ function App() {
           </ProtectedRoute>} 
         />
 
-        <Route 
-          path="/student/cart" allowedRoles={["student"]}
-          element={<Suspense fallback={<div>Loading...</div>}><Cart /></Suspense>}
+        {/* Student Cart */}
+        <Route path="/student/cart" element={<ProtectedRoute allowedRoles={["student"]}>
+              <Suspense fallback={<div>Loading...</div>}>
+                <Cart />
+              </Suspense>
+            </ProtectedRoute>
+          }
         />
 
-         <Route 
-          path="/student/wishlist" allowedRoles={["student"]}
-          element={<Suspense fallback={<div>Loading...</div>}><StudentWishlist />
-          </Suspense>}
+        {/* Student Wishlist */}
+        <Route path="/student/wishlist" element={
+            <ProtectedRoute allowedRoles={["student"]}>
+              <Suspense fallback={<div>Loading...</div>}>
+                <StudentWishlist />
+              </Suspense>
+            </ProtectedRoute>
+          }
         />
-
+        
         <Route path="/checkout" allowedRoles={["student"]} element={<Checkout />} />
 
         {/* <Route 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import axios from "axios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -48,6 +48,9 @@ function Checkout() {
     }
   };
 
+  useEffect(() => {
+   document.title = "Checkout | Learning Management System";
+  }, []);
   const handlePayment = async () => {
     try {
       if (!token || !user) {

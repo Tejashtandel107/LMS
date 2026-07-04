@@ -14,6 +14,7 @@ function StudentWishlist() {
   const { items, loading } = useSelector((state) => state.wishlist);
 
   useEffect(() => {
+    document.title = "My Wishlist | Learning Management System";
     dispatch(fetchWishlist());
   }, [dispatch]);
 
