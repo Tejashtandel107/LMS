@@ -172,7 +172,7 @@ function AllCourses() {
                   : "https://via.placeholder.com/600x350?text=Course";
 
                 const price =
-                  Number(course.price) === 0 ? "Free" : `$${course.price}`;
+                  Number(course.price) === 0 ? "Free" : `₹${course.price}`;
 
                 const averageRating = getAverageRating(course);
 

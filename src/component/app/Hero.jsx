@@ -9,22 +9,22 @@ function Hero() {
   const [courses,setCourses] = useState([]);
 
   const fetchUsers = async()=>{
-    const res = await axios.get(`${BASE_URL}`);
+    const res = await axios.get(`${BASE_URL}/api/users`);
     setUsers(res.data);
   }
 
   const fetchCourses = async()=>{
-    const res = await axios.get(`${BASE_URL}`);
-    setCourses(res.data);
+    const res = await axios.get(`${BASE_URL}/api/courses`);
+    setCourses(res.data.data);
   }
+
+  const students = users.filter((user)=> user.userRole == 'student');
+  const instuctors = users.filter((user)=> user.userRole == 'instructor');
 
   useEffect(()=>{
     fetchUsers();
     fetchCourses();
   },[]);
-
-  console.log(users);
-  console.log(courses);
   return (
     <>
       <section
@@ -36,15 +36,6 @@ function Hero() {
         }}
       >
         <div className="container">
-
-          {/* Trusted Badge */}
-          <div className="text-center mb-5">
-            <span
-              className="badge bg-white text-secondary px-4 py-3 rounded-pill shadow-sm"
-            >
-           12,000+ learners building skills this month
-            </span>
-          </div>
 
           {/* Heading */}
           <div className="text-center">
@@ -83,30 +74,26 @@ function Hero() {
               <Link to="/course" className="btn btn-primary btn-lg px-5 rounded-4">
                 Browse Courses →
               </Link>
-
-              <button className="btn btn-light btn-lg px-5 rounded-4 border">
-                Start Free
-              </button>
             </div>
 
             {/* Stats */}
             <div className="row mt-5 pt-5 justify-content-center">
               <div className="col-4 col-md-2">
-                <h2 className="fw-bold">424+</h2>
+                <h2 className="fw-bold">{courses.length || 0}</h2>
                 <p className="text-uppercase text-muted small">
                   Courses
                 </p>
               </div>
 
               <div className="col-4 col-md-2">
-                <h2 className="fw-bold">180+</h2>
+                <h2 className="fw-bold">{instuctors.length || 0}</h2>
                 <p className="text-uppercase text-muted small">
                   Instructors
                 </p>
               </div>
 
               <div className="col-4 col-md-2">
-                <h2 className="fw-bold">12K</h2>
+                <h2 className="fw-bold">{students.length || 0}</h2>
                 <p className="text-uppercase text-muted small">
                   Students
                 </p>

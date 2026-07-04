@@ -42,10 +42,8 @@ function FeaturedCourses() {
   };
 
   const getAverageRating = (course) => {
-    const ratingData = Array.isArray(course.rating)
-      ? course.rating
-      : course.rating
-      ? [course.rating]
+    const ratingData = Array.isArray(course.ratings)
+      ? course.ratings
       : [];
 
     if (ratingData.length === 0) return "0.0";
@@ -95,6 +93,7 @@ function FeaturedCourses() {
 
         <div className="row g-4">
           {courses.map((course) => {
+
             const active = isWishlisted(course.id);
             const averageRating = getAverageRating(course);
 
@@ -164,7 +163,7 @@ function FeaturedCourses() {
                       <h3 className={styles.price}>
                         {Number(course.price) === 0
                           ? "Free"
-                          : `$${course.price || 0}`}
+                          : `₹${course.price || 0}`}
                       </h3>
 
                       <small className={styles.students}>

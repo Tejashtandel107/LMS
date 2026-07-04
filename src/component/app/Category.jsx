@@ -12,8 +12,6 @@ function Categories() {
   async function getCategories() {
     try {
       const response = await axios.get(`${BASE_URL}/api/categories?populate=*`);
-      console.log(response.data.data);
-
       setCategories(response.data.data || []);
     } catch (error) {
       console.log("Category Error:", error);

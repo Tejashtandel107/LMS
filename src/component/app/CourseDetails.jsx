@@ -121,15 +121,21 @@ function CourseDetails() {
     return course?.language || "English";
   }, [course]);
 
-  const averageRating = useMemo(() => {
-    if (!reviews.length) return 5;
+const ratingCount = reviews.length;
 
-    const total = reviews.reduce((sum, review) => {
-      return sum + Number(review.rating || 0);
-    }, 0);
+const averageRating = useMemo(() => {
+  if (!ratingCount) return null;
 
-    return (total / reviews.length).toFixed(1);
-  }, [reviews]);
+  const total = reviews.reduce((sum, review) => {
+    return sum + Number(review.rating || 0);
+  }, 0);
+
+  return (total / ratingCount).toFixed(1);
+}, [reviews, ratingCount]);
+
+const ratingText = averageRating
+  ? `${averageRating} Rating`
+  : "No ratings yet";
 
   if (loading) {
     return (
@@ -201,9 +207,9 @@ function CourseDetails() {
 
               <div className="d-flex flex-wrap gap-4 align-items-center small">
                 <span className="fw-semibold text-warning">
-                  ⭐ {averageRating} Rating
+                  ⭐ {ratingText}
                 </span>
-                <span>💬 {reviews.length} Reviews</span>
+                <span>💬 {ratingCount} {ratingCount === 1 ? "Review" : "Reviews"}</span>
                 <span>👥 {course.enrollments?.length || 0} Students</span>
                 <span>👨‍🏫 {course.instructor?.FullName || "Instructor"}</span>
                 <span>📚 {lessons.length} Lessons</span>
@@ -381,7 +387,7 @@ function CourseDetails() {
 
                 <div className="card-body p-4">
                   <h2 className="fw-bold mb-3">
-                    {Number(course.price) === 0 ? "Free" : `$${course.price}`}
+                    {Number(course.price) === 0 ? "Free" : `₹${course.price}`}
                   </h2>
 
                   {!isEnrolled && (
@@ -453,7 +459,7 @@ function CourseDetails() {
                     <li className="mb-3">
                       🏷️ {course.course_type?.name || "Premium"}
                     </li>
-                    <li className="mb-3">⭐ {averageRating} rating</li>
+                    <li className="mb-3">⭐ {ratingText}</li>
                     <li>🔐 Lifetime access</li>
                   </ul>
                 </div>
