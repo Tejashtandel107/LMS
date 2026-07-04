@@ -147,21 +147,6 @@ function Register() {
               >
                 Create Account
               </button>
-              <button
-                type="button"
-                className="mt-3 btn btn-light border shadow-sm w-100 d-flex align-items-center justify-content-center gap-2 py-3 fw-semibold"
-                onClick={() => {
-                  window.location.href = `${BASE_URL}/api/connect/google`;
-                }}
-              >
-                <img
-                  src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
-                  alt="Google"
-                  width="22"
-                  height="22"
-                />
-                Continue with Google
-              </button>
               <div className="text-center mt-4">
                 <span className="text-muted">
                   Already have an account?
