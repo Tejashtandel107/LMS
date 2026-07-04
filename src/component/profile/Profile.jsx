@@ -10,7 +10,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 const API_URL = import.meta.env.VITE_BASE_URL;
 
 const profileSchema = z.object({
-  username: z.string().min(1, "Full name is required"),
+  username: z.string().min(1, "Username is required"),
+  FullName: z.string().min(1, "Full name is required"),
   email: z.string().min(1, "Email is required").email("Invalid email"),
   bio: z.string().max(250, "Bio must be max 250 characters").optional(),
 });
@@ -26,10 +27,17 @@ function Profile() {
   const [avatarPreview, setAvatarPreview] = useState("");
   const [message, setMessage] = useState("");
 
-  const {register, handleSubmit, reset,watch,formState: { errors, isSubmitting }} = useForm({
+  const {
+    register,
+    handleSubmit,
+    reset,
+    watch,
+    formState: { errors, isSubmitting },
+  } = useForm({
     resolver: zodResolver(profileSchema),
     defaultValues: {
       username: "",
+      FullName: "",
       email: "",
       bio: "",
     },
@@ -50,6 +58,7 @@ function Profile() {
 
       reset({
         username: localUser.username || "",
+        FullName: localUser.FullName || "",
         email: localUser.email || "",
         bio: localUser.bio || "",
       });
@@ -105,6 +114,7 @@ function Profile() {
         `${API_URL}/api/users/${userId}`,
         {
           username: data.username,
+          FullName: data.FullName,
           email: data.email,
           bio: data.bio,
           avatar: avatarId,
@@ -123,6 +133,7 @@ function Profile() {
         JSON.stringify({
           ...oldUser,
           username: data.username,
+          FullName: data.FullName,
           email: data.email,
           bio: data.bio,
           avatar: avatarData,
@@ -133,15 +144,19 @@ function Profile() {
       setAvatarPreview("");
       setMessage("Profile updated successfully");
     } catch (error) {
-      console.log("Update Error:", error);
+      console.log("Update Error:", error.response?.data || error);
       setMessage("Something went wrong");
     }
   }
 
-  const avatarUrl = avatarPreview ? avatarPreview : avatar?.url ? `${API_URL}${avatar.url}`
+  const avatarUrl = avatarPreview
+    ? avatarPreview
+    : avatar?.url
+    ? `${API_URL}${avatar.url}`
     : "https://cdn-icons-png.flaticon.com/512/3135/3135715.png";
 
   const username = watch("username");
+  const fullName = watch("FullName");
   const email = watch("email");
 
   return (
@@ -149,7 +164,7 @@ function Profile() {
       <div className={`${styles.profilePage} ms-5`}>
         <div className={styles.header}>
           <h2>Profile settings</h2>
-          <p>Update how you appear across Learnix.</p>
+          <p>Update your personal information across Learnix.</p>
         </div>
 
         <div className={styles.card}>
@@ -175,7 +190,7 @@ function Profile() {
             </div>
 
             <div>
-              <h5>{username}</h5>
+              <h5>{fullName || username}</h5>
               <p>{email}</p>
             </div>
           </div>
@@ -186,13 +201,31 @@ function Profile() {
                 <label className={styles.label}>Full name</label>
                 <input
                   type="text"
+                  {...register("FullName")}
+                  className={`${styles.input} ${
+                    errors.FullName ? styles.inputError : ""
+                  }`}
+                />
+                {errors.FullName && (
+                  <p className={styles.errorText}>
+                    {errors.FullName.message}
+                  </p>
+                )}
+              </div>
+
+              <div className="col-md-6 mb-4">
+                <label className={styles.label}>Username</label>
+                <input
+                  type="text"
                   {...register("username")}
                   className={`${styles.input} ${
                     errors.username ? styles.inputError : ""
                   }`}
                 />
                 {errors.username && (
-                  <p className={styles.errorText}>{errors.username.message}</p>
+                  <p className={styles.errorText}>
+                    {errors.username.message}
+                  </p>
                 )}
               </div>
 
